@@ -24,7 +24,7 @@ export function Hero() {
           <div className="flex-1 space-y-6 text-center lg:text-left">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold text-blue-900 leading-tight">
-                <span className="block">Hi I'm</span>
+                <span className="block">Hi I&apos;m</span>
                 <span className="block bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   Abhinav Gambhir
                 </span>

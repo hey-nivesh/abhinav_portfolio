@@ -16,7 +16,7 @@ export const WavyBackground = ({
   height = "600px",
   ...props
 }: {
-  children?: any;
+  children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
   colors?: string[];
@@ -26,7 +26,7 @@ export const WavyBackground = ({
   speed?: "slow" | "fast";
   waveOpacity?: number;
   height?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }) => {
   const noise = createNoise3D();
   let w: number,
@@ -34,8 +34,8 @@ export const WavyBackground = ({
     nt: number,
     i: number,
     x: number,
-    ctx: any,
-    canvas: any;
+    ctx: CanvasRenderingContext2D | null,
+    canvas: HTMLCanvasElement | null;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -52,7 +52,9 @@ export const WavyBackground = ({
 
   const init = () => {
     canvas = canvasRef.current;
+    if (!canvas) return;
     ctx = canvas.getContext("2d");
+    if (!ctx) return;
     
     // Get container dimensions instead of window dimensions
     const container = containerRef.current;
@@ -68,6 +70,7 @@ export const WavyBackground = ({
     nt = 0;
     
     const handleResize = () => {
+      if (!canvas || !ctx) return;
       const container = containerRef.current;
       if (container) {
         w = ctx.canvas.width = container.offsetWidth;
@@ -84,7 +87,7 @@ export const WavyBackground = ({
   };
 
   const waveColors = colors ?? [
-   "#38bdf8",
+    "#38bdf8",
     "#818cf8",
     "#c084fc",
     "#e879f9",
@@ -92,13 +95,14 @@ export const WavyBackground = ({
   ];
   
   const drawWave = (n: number) => {
+    if (!ctx) return;
     nt += getSpeed();
     for (i = 0; i < n; i++) {
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
-        var y = noise(x / 800, 0.3 * i, nt) * 100;
+        const y = noise(x / 800, 0.3 * i, nt) * 100;
         ctx.lineTo(x, y + h * 0.5);
       }
       ctx.stroke();
@@ -108,6 +112,7 @@ export const WavyBackground = ({
 
   let animationId: number;
   const render = () => {
+    if (!ctx) return;
     ctx.fillStyle = backgroundFill || "#000133";
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
@@ -122,7 +127,7 @@ export const WavyBackground = ({
       cancelAnimationFrame(animationId);
       if (cleanup) cleanup();
     };
-  }, []);
+  }, [blur, waveOpacity, backgroundFill, waveWidth, speed]);
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
