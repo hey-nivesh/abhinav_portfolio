@@ -22,5 +22,33 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
+
+/* Apply Schibsted Grotesk to all text elements */
+* {
+  font-family: "Schibsted Grotesk", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+p, span, div, a, button, input, textarea, label {
+  font-family: "Schibsted Grotesk", sans-serif;
+}
+/* Infinite Moving Cards Animation */
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+

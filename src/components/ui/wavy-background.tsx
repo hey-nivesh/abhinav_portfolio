@@ -121,11 +121,12 @@ export const WavyBackground = ({
   };
 
   useEffect(() => {
-    const cleanup = init();
+    init();
     render();
     return () => {
-      cancelAnimationFrame(animationId);
-      if (cleanup) cleanup();
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
     };
   }, [blur, waveOpacity, backgroundFill, waveWidth, speed]);
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -45,11 +45,12 @@ export const StickyScroll = ({
     "#dfdefc", // black
     "white", // neutral-900
   ];
-  const linearGradients = [
+  
+  const linearGradients = useMemo(() => [
     "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
     "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
     "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
-  ];
+  ], []);
 
   const [backgroundGradient, setBackgroundGradient] = useState(
     linearGradients[0],
@@ -67,7 +68,7 @@ export const StickyScroll = ({
         }}
         className="rounded-md p-6 mb-4"
       >
-        <h1 className="text-blue-500 text-4xl font-bold text-center font-poppins">Experience</h1>
+        <h1 className="text-blue-800 text-6xl font-bold text-center">EXPERIENCE</h1>
       </motion.div>
       <motion.div
         animate={{

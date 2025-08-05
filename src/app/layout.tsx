@@ -1,25 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Experience } from "@/components/experience";
+import { Certifications } from "@/components/Certifications";
+import { Acheivements } from "@/components/Acheivements";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Abhinav Portfolio",
-  description: "Personal portfolio of Abhinav",
-
+  title: "Abhinav Gambhir - Portfolio",
+  description: "Solutions Specialist - Apps & Infra - Microsoft",
 };
 
 export default function RootLayout({
@@ -29,11 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-schibsted">
         <Header />
         <Hero />
         <About />
         <Experience />
+        <Certifications />
+        <Acheivements />
         {children}
       </body>
     </html>
