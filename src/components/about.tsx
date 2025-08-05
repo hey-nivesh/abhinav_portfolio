@@ -15,11 +15,11 @@ export function About() {
         </h2>
         
         <div className="max-w-3xl mx-auto">
-          <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed">
             I&apos;m Abhinav Gambhir, a Cloud Solutions Architect with 9+ years of experience helping enterprises modernize their infrastructure and applications. Currently serving as a Solutions Specialist at Microsoft, I&apos;ve guided organizations through complex Azure migrations and hybrid cloud transformations across my tenure at HPE, Red Hat, and Microsoft.
           </p>
           
-          <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mt-6">
+          <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed mt-6">
             My expertise spans containerization, Kubernetes, and enterprise-scale solutions, with a passion for translating business challenges into scalable technical architectures. Beyond my professional work, I actively contribute to IEEE&apos;s global technology initiatives and speak at international conferences. I believe in creating solutions that not only solve today&apos;s problems but scale for tomorrow&apos;s opportunities.
           </p>
         </div>
