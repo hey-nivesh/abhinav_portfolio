@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
@@ -28,7 +28,6 @@ body {
   font-style: normal;
 }
 
-/* Apply Schibsted Grotesk to all text elements */
 * {
   font-family: "Schibsted Grotesk", sans-serif;
 }
@@ -41,7 +40,6 @@ h1, h2, h3, h4, h5, h6 {
 p, span, div, a, button, input, textarea, label {
   font-family: "Schibsted Grotesk", sans-serif;
 }
-/* Infinite Moving Cards Animation */
 @keyframes scroll {
   to {
     transform: translate(calc(-50% - 0.5rem));

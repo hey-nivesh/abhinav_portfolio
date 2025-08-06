@@ -135,7 +135,7 @@ const content = [
   ];
 export function Experience() {
   return (
-    <div className="w-full">
+    <div id="experience" className="w-full bg-black">
       <StickyScroll content={content} />
     </div>
   );

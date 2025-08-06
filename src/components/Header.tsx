@@ -1,81 +1,98 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { Phone, Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigationItems = [
-    { name: 'SERVICES', href: '/services', active: true },
-    { name: 'WORKS', href: '/works', active: false },
-    { name: 'NOTES', href: '/notes', active: false },
-    { name: 'EXPERIENCE', href: '/experience', active: false },
+    { name: 'Home', href: '#home', active: true },
+    { name: 'About', href: '#about', active: false },
+    { name: 'Experience', href: '#experience', active: false },
+    { name: 'Projects', href: '#projects', active: false },
+    { name: 'Certifications', href: '#certifications', active: false },
+    { name: 'Achievements', href: '#achievements', active: false },
   ];
 
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="bg-white shadow-sm border-b border-blue-100">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-blue-900 hover:text-blue-700 transition-colors">
+            <button 
+              onClick={() => handleNavClick('#home')}
+              className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors cursor-pointer"
+            >
               Abhinav
-            </Link>
+            </button>
           </div>
 
-          <nav className="hidden md:flex space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-6">
             {navigationItems.map((item) => (
-              <Link
+              <button
                 key={item.name}
-                href={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                onClick={() => handleNavClick(item.href)}
+                className={`px-3 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                   item.active
-                    ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                    : 'text-gray-600 hover:text-blue-700 hover:bg-blue-50'
+                    ? 'bg-blue-600/80 text-white border border-blue-500/50 backdrop-blur-sm'
+                    : 'text-gray-300 hover:text-white hover:bg-white/10 backdrop-blur-sm'
                 }`}
               >
                 {item.name}
-              </Link>
+              </button>
             ))}
           </nav>
 
-          <div className="flex items-center space-x-4">
-            <div className="hidden lg:flex items-center space-x-2 text-gray-600">
-              <Phone size={16} className="text-blue-600" />
+          {/* Contact Info - Desktop */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="flex items-center space-x-2 text-gray-300">
+              <Phone size={16} className="text-blue-400" />
               <span className="text-sm font-medium">+91 9606216439</span>
             </div>
-
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
+        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-blue-100 py-4">
+          <div className="lg:hidden border-t border-white/10 py-4 bg-black/20 backdrop-blur-md rounded-b-lg">
             <nav className="flex flex-col space-y-2">
               {navigationItems.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  href={item.href}
-                  className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  onClick={() => handleNavClick(item.href)}
+                  className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 text-left ${
                     item.active
-                      ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                      : 'text-gray-600 hover:text-blue-700 hover:bg-blue-50'
+                      ? 'bg-blue-600/80 text-white border border-blue-500/50 backdrop-blur-sm'
+                      : 'text-gray-300 hover:text-white hover:bg-white/10 backdrop-blur-sm'
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </Link>
+                </button>
               ))}
               
-              <div className="flex items-center space-x-2 px-4 py-3 text-gray-600 lg:hidden">
-                <Phone size={16} className="text-blue-600" />
+              {/* Mobile Contact Info */}
+              <div className="flex items-center space-x-2 px-4 py-3 text-gray-300 border-t border-white/10 mt-2 pt-4">
+                <Phone size={16} className="text-blue-400" />
                 <span className="text-sm font-medium">+91 9606216439</span>
               </div>
             </nav>

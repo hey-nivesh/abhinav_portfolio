@@ -5,13 +5,12 @@ import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 
 export function Certifications() {
   return (
-    
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-white dark:bg-grid-blue-400 items-center justify-center relative overflow-hidden">
-      <h1 className="text-blue-800 text-6xl font-bold text-center mb-40">CERTIFICATIONS</h1>
+    <div id="certifications" className="h-[40rem] rounded-md flex flex-col antialiased bg-black dark:bg-black dark:bg-grid-blue-400 items-center justify-center relative overflow-hidden">
+      <h1 className="text-white text-6xl font-bold text-center mb-40">CERTIFICATIONS</h1>
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
-        speed="slow" className="mb-30"
+        speed="extra-slow" className="mb-30"
       />
     </div>
   );

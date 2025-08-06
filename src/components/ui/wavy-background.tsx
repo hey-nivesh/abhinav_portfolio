@@ -56,7 +56,6 @@ export const WavyBackground = ({
     ctx = canvas.getContext("2d");
     if (!ctx) return;
     
-    // Get container dimensions instead of window dimensions
     const container = containerRef.current;
     if (container) {
       w = ctx.canvas.width = container.offsetWidth;
@@ -121,12 +120,11 @@ export const WavyBackground = ({
   };
 
   useEffect(() => {
-    init();
+    const cleanup = init();
     render();
     return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
+      cancelAnimationFrame(animationId);
+      if (cleanup) cleanup();
     };
   }, [blur, waveOpacity, backgroundFill, waveWidth, speed]);
 
