@@ -3,10 +3,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
-import { Experience } from "@/components/experience";
 import { Certifications } from "@/components/Certifications";
-import { Acheivements } from "@/components/Acheivements";
+import { Achievements } from "@/components/Acheivements";
 import { Projects } from "@/components/projects";
+import WorkExperienceTimeline from "@/components/WorkExperienceTimeline";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -26,10 +26,10 @@ export default function RootLayout() {
         <Header />
         <Hero />
         <About />
-        <Experience />
+        <WorkExperienceTimeline />
         <Projects />
         <Certifications />
-        <Acheivements />
+        <Achievements />
         <Footer />
       </body>
     </html>

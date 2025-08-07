@@ -2,8 +2,13 @@
 
 import React from "react";
 import { WobbleCard } from "./ui/wobble-card";
+import { motion } from "framer-motion";
 
 export function Projects() {
+    const cardVariants = {
+        hidden: { opacity: 0, y: 60 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, type: "spring" as const } },
+    };
     return (
         <div id="projects" className="py-20 bg-black">
             <div className="max-w-7xl mx-auto px-4">
@@ -26,10 +31,9 @@ export function Projects() {
                             width={600}
                             height={600}
                             alt="Datacenter procurement automation system"
-                            className="absolute right-0 bottom-0 w-64 h-64 lg:w-80 lg:h-80 object-contain rounded opacity-90"
+                            className="absolute right-0 bottom-0 w-64 h-64 lg:w-80 lg:h-80 object-contain rounded opacity-90 hidden sm:block"
                         />
                     </WobbleCard>
-                    
                     <WobbleCard containerClassName="col-span-1 min-h-[350px] bg-gray-800">
                         <div className="z-10 relative">
                             <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-2xl font-semibold tracking-[-0.015em] text-white">
@@ -40,7 +44,6 @@ export function Projects() {
                             </p>
                         </div>
                     </WobbleCard>
-                    
                     <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-blue-900 min-h-[400px] lg:min-h-[350px]">
                         <div className="max-w-sm z-10 relative">
                             <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-2xl font-semibold tracking-[-0.015em] text-white">
@@ -55,7 +58,7 @@ export function Projects() {
                             width={500}
                             height={500}
                             alt="RedHat OpenStack implementation"
-                            className="absolute right-4 bottom-0 w-64 h-64 lg:w-80 lg:h-80 object-contain  rounded opacity-90"
+                            className="absolute right-4 bottom-0 w-64 h-64 lg:w-80 lg:h-80 object-contain  rounded opacity-90 hidden sm:block"
                         />
                     </WobbleCard>
                 </div>

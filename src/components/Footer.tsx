@@ -11,17 +11,14 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-white text-lg font-semibold">Contact</h3>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Phone size={16} className="text-blue-400" />
-                <span className="text-sm">+91 9606216439</span>
-              </div>
+              
               <div className="flex items-center space-x-3 text-gray-300">
                 <Mail size={16} className="text-blue-400" />
-                <span className="text-sm">abhinav.gambhir@microsoft.com</span>
+                <span className="text-sm">abhinavgambhir1@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <MapPin size={16} className="text-blue-400" />
-                <span className="text-sm">Bangalore, India</span>
+                <span className="text-sm">India</span>
               </div>
             </div>
           </div>
@@ -44,43 +41,20 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-white text-lg font-semibold">Services</h3>
-            <div className="space-y-2">
-              <span className="block text-gray-300 text-sm">Cloud Architecture</span>
-              <span className="block text-gray-300 text-sm">DevOps Solutions</span>
-              <span className="block text-gray-300 text-sm">Infrastructure Design</span>
-              <span className="block text-gray-300 text-sm">Azure Migration</span>
-            </div>
-          </div>
+          
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             <h3 className="text-white text-lg font-semibold">Connect</h3>
             <div className="flex space-x-4">
               <a 
-                href="https://linkedin.com/in/abhinav-gambhir" 
+                href="https://www.linkedin.com/in/abhinavgambhir/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-blue-400 transition-colors"
               >
                 <Linkedin size={20} />
               </a>
-              <a 
-                href="https://github.com/abhinavgambhir" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <Github size={20} />
-              </a>
-              <a 
-                href="https://twitter.com/abhinavgambhir" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-400 transition-colors"
-              >
-                <Twitter size={20} />
-              </a>
+              
             </div>
           </div>
         </div>
